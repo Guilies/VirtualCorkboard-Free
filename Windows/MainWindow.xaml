@@ -1,0 +1,39 @@
+﻿<Window x:Class="VirtualCorkboard.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VirtualCorkboard"
+        xmlns:controls="clr-namespace:VirtualCorkboard.Controls"
+        mc:Ignorable="d"
+        Title="Virtual Corkboard" Height="1080" Width="1920"
+        Background="Transparent" AllowsTransparency="True" WindowStyle="None" WindowState="Maximized">
+    <Grid>
+        <!-- Main content area -->
+        <Grid>
+            <!-- Overlay for dimming -->
+            <Rectangle x:Name="DimmingOverlay" Visibility="Visible" Fill="#80000000" Panel.ZIndex="0"/>
+
+            <!-- Twine layer -->
+            <Canvas x:Name="TwineCanvas" Background="Transparent" IsHitTestVisible="True" Panel.ZIndex="1"/>
+
+            <!-- Notes layer -->
+            <!-- Background is null so empty area doesn't block twine hit tests -->
+            <Canvas x:Name="NotesCanvas" Background="{x:Null}" MouseLeftButtonDown="NotesCanvas_MouseLeftButtonDown" Panel.ZIndex="2">
+                <Button Content="Toggle Sidebar"
+                        Click="ToggleSidebarButton_Click"
+                        Canvas.Left="10" Canvas.Top="10"
+                        Width="120" Height="32"/>
+            </Canvas>
+        </Grid>
+
+        <!-- Sidebar overlay -->
+        <controls:SidebarControl x:Name="Sidebar"
+                                 Width="220"
+                                 Visibility="Collapsed"
+                                 VerticalAlignment="Stretch"
+                                 HorizontalAlignment="Left"
+                                 Panel.ZIndex="10"
+                                 Background="Blue"/>
+    </Grid>
+</Window>

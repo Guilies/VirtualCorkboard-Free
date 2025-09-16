@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="VirtualCorkboard.Controls.SidebarControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Height="auto" Width="220" Background="Blue">
+    <StackPanel Margin="10">
+        <TextBlock Text="Sidebar" FontWeight="Bold" FontSize="18" Margin="0,0,0,10"/>
+        <Button Content="Add Text Note" Margin="0,0,0,5" Click="AddTextNote_Click"/>
+        <Button Content="Quit" Margin="0,0,0,5" Click="Quit_Click"/>
+        <Button Content="Close" Click="Close_Click"/>
+    </StackPanel>
+</UserControl>
